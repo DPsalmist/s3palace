@@ -1,6 +1,6 @@
-# herokueshop
+# e-commerce app
 
-A simple ecommerce site with basic ecommerce features. You can clone and use it for your personal use.
+S3Palace is an ecommerce site where you can buy quality male suits and shoes.
 
 Features include:
 - Viewing available products. 
@@ -8,11 +8,9 @@ Features include:
 - Adding products to cart.
 - Updating & removing products from cart.
 - Proceed to checkout.
+- Making payment online
 
 Future features to be added include:
 - Sending notification of emails to users after placing orders.
 - Integration of payment gateway.
 - Generating invoices dynamically.
-
-
-Live url: https://sodcommerce.herokuapp.com/
