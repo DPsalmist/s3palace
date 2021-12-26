@@ -1,0 +1,35 @@
+{
+	"folders": [
+		{
+			"path": "../../../../Devs/vid_sharing_app"
+		},
+		{
+			"path": "../../../../Devs/Python_dev_training/polls_env"
+		},
+		{
+			"path": "../../../../Devs/smiles_env"
+		},
+		{
+			"path": "../../../../Devs/foodorder_env"
+		},
+		{
+			"path": "../../../../Documents/Web Dev/uwakwe"
+		},
+		{
+			"path": "../../../Assignment_solution"
+		},
+		{
+			"path": "../../../../Devs/event1_env/django-event-management"
+		},
+		{
+			"path": "../../../../my-app"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../../Devs/payvenv/paystackpay"
+		}
+	],
+	"settings": {}
+}

@@ -1,0 +1,215 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<!--banner-->
+{% include 'shop/product/banner.html' %}
+
+<!--content 1-->
+<div class="content">
+	<div class="container">
+		<div class="content-top">
+			<div class="content-top1">
+				<div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="single.html">
+							<img class="img-responsive" src="{% static 'images/pi5.png' %}" alt="" />
+						</a>
+						<h3><a href="single.html">Palazzo</a></h3>
+						<div class="price">
+								<h5 class="item_price">#650</h5>
+								<a href="#" class="item_add2">Add To Cart</a>
+								<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>	
+				<div class="col-md-6 animated wow fadeInDown animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+					<div class="col-md3">
+						<div class="up-t">
+							<h3>Flat 20% Offer On All Orders!</h3>
+						</div>
+					</div>
+				</div>
+			<div class="col-md-3 col-md2 animated wow fadeInRight" data-wow-delay=".5s">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="single.html">
+							<img class="img-responsive" src="{% static 'images/pi4.png' %}" alt="" />
+						</a>
+						<h3><a href="single.html">Pant</a></h3>
+						<div class="price">
+								<h5 class="item_price">#300</h5>
+								<a href="#" class="item_add">Add To Cart</a>
+								<div class="clearfix"> </div>
+						</div>
+					</div>
+				</div>	
+			<div class="clearfix"> </div>
+			</div>	
+
+
+			<div class=" rsidebar span_1_of_left">
+				{% comment %} {% if category %}{{ category.name }}{% else %}Products{% endif %} {% endcomment %}
+					<h3 class="cate">Product Categories</h3>
+					<ul class="menu-drop">
+						<li class="item1"> {% if not category %} {% endif %}
+							<a href="{% url "shop:product_list" %}">All Categories</a>
+							<ul class="cute">
+								{% for c in categories %}
+								<li class="subitem1" {% if category.slug == c.slug %} {% endif %}> 
+									{% if c.name == 'Suits' %} 
+										<a href="{{ c.get_absolute_url }}"> <img src="{% static 'images/t8.jpg' %}" class="img-responsive" alt=""/>
+											{{ c.name }} 
+									{% elif c.name == 'Shoes' %}
+										<a href="{{ c.get_absolute_url }}"> <img src="{% static 'images/t9.jpg' %}" class="img-responsive" alt=""/>
+											{{ c.name }}
+									{% endif %}</a>
+								</li>
+								{% endfor %}
+							</ul>
+						</li>
+					</ul>
+			</div>
+
+            {% comment %} Second Row {% endcomment %}
+			<div class="content-top1">
+				<div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+                    {% for china in products %}
+					<div class="col-md1 simpleCart_shelfItem">
+                        <a href="{{ china.get_absolute_url }}">
+							<img class="img-responsive" src="{{ china.image.url }}" alt="" />
+						</a>
+						<h3><a href="{{ china.get_absolute_url }}">{{ china.name }}</a></h3>
+						<div class="price">
+								<h5 class="item_price">N{{ china.price }}</h5>
+								<a href="#" class="item_add">Add To Cart</a>
+								<div class="clearfix"> </div>
+						</div>
+					</div>
+                    {% endfor %}
+				</div>	
+			</div>
+			<div class="clearfix"> </div>
+			</div>			
+		</div>
+	</div>
+</div>
+<!--//content-->
+
+	<div class="con-tp">
+		<div class="container">
+			<div class="col-md-4 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
+				<a href="products.html">
+					<div class="content-grid-effect slow-zoom vertical">
+						<div class="img-box"><img src="{% static 'images/6.jpg' %}" alt="image" class="img-responsive zoom-img"></div>
+						<div class="info-box">
+							<div class="info-content simpleCart_shelfItem">
+										<h4>30%offer</h4>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-4 con-tp-lft animated wow fadeInDown animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
+				<a href="products.html">			
+					<div class="content-grid-effect slow-zoom vertical">
+						<div class="img-box"><img src="{% static 'images/10.jpg' %}" alt="image" class="img-responsive zoom-img"></div>
+							<div class="info-box">
+								<div class="info-content simpleCart_shelfItem">
+										<h4>45%offer</h4>	
+								</div>
+							</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-4 con-tp-lft animated wow fadeInRight" data-wow-delay=".5s">
+				<a href="products.html">
+					<div class="content-grid-effect slow-zoom vertical">
+						<div class="img-box"><img src="{% static 'images/9.jpg' %}" alt="image" class="img-responsive zoom-img"></div>
+							<div class="info-box">
+								<div class="info-content simpleCart_shelfItem">
+										<h4>50%offer</h4>	
+								</div>
+							</div>
+					</div>
+				</a>
+			</div>
+			<div class="clearfix"></div>
+		<div class="col-md-4 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
+			<a href="products.html">
+				<div class="content-grid-effect slow-zoom vertical">
+					<div class="img-box"><img src="{% static 'images/12.jpg' %}" alt="image" class="img-responsive zoom-img"></div>
+						<div class="info-box">
+							<div class="info-content simpleCart_shelfItem">
+									<h4>25%offer</h4>	
+							</div>
+						</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-4 con-tp-lft animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+			<a href="products.html">
+				<div class="content-grid-effect slow-zoom vertical">
+					<div class="img-box"><img src="{% static 'images/13.jpg' %}" alt="image" class="img-responsive zoom-img"></div>
+						<div class="info-box">
+							<div class="info-content simpleCart_shelfItem">
+									<h4>50%offer</h4>	
+							</div>
+						</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-4 con-tp-lft animated wow fadeInRight" data-wow-delay=".5s">
+			<a href="products.html">
+				<div class="content-grid-effect slow-zoom vertical">
+					<div class="img-box"><img src="{% static 'images/14.jpg' %}" alt="image" class="img-responsive zoom-img"></div>
+						<div class="info-box">
+							<div class="info-content simpleCart_shelfItem">
+									<h4>35%offer</h4>	
+							</div>
+						</div>
+				</div>
+			</a>
+		</div>
+		<div class="clearfix"></div>
+		</div>
+	</div>
+    {% comment %} Third Row {% endcomment %}
+	<div class="c-btm">
+        {% for product in all_products %}
+		<div class="content-top1">
+			<div class="container">
+
+				<div class="col-md-3 col-md2 animated wow fadeInLeft" data-wow-delay=".5s">
+					<div class="col-md1 simpleCart_shelfItem">
+						<a href="single.html">
+							<img class="img-responsive" src="{{ product.image.url }}" alt="All Products" />
+						</a>
+						<h3><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
+						<div class="price">
+								<h5 class="item_price">#{{ product.price }}</h5>
+								{% comment %} <a href="#" class="item_add">Add To Cart</a> {% endcomment %}
+								<div class="clearfix"> </div>
+						</div>
+						
+					</div>
+				</div>
+
+			<div class="clearfix"> </div>
+			</div>	
+		</div>
+        {% endfor %}
+	</div>
+	
+	<h2> Tests </h2>
+	<div>
+		<ul {% if category.slug == c.slug %} {% endif %}>
+		{% for a in subcategories %}
+			<li>
+				<a href="{{ a.get_absolute_url }}">{{ a.name }}
+			</li>
+		{% endfor %}
+		</ul> 
+	</div>
+{% endblock content  %}
