@@ -14,10 +14,10 @@ SECRET_KEY = 'm_1n^kl^8h+$p3hqro)i@90q4y300t!*j75fon#hp!t=#dw&2e'
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = os.getenv("DEBUG", "False") == "True"
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['s3palace.herokuapp.com', '127.0.0.1', 'localhost']
 
 # Default renderer
-FORM_RENDERER = 'django.forms.renderers.DjangoTemplates'
+#FORM_RENDERER = 'django.forms.renderers.DjangoTemplates'
 
 # Application definition
 
@@ -138,9 +138,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-STATIC_ROOT = 'BASE_DIR / static'
-STATIC_URL = '/static/'
-STATICFILES_DIR = 'BASE_DIR /static'
+STATIC_URL = 'static/'
+STATIC_ROOT = 'BASE_DIR / static_files'
 #STATICFILES_DIR = (os.path.join(BASE_DIR, 'static')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
