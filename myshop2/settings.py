@@ -14,7 +14,7 @@ SECRET_KEY = 'm_1n^kl^8h+$p3hqro)i@90q4y300t!*j75fon#hp!t=#dw&2e'
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = os.getenv("DEBUG", "False") == "True"
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['s3palace.herokuapp.com', '127.0.0.1', 'localhost']
 
 # Default renderer
 FORM_RENDERER = 'django.forms.renderers.DjangoTemplates'
