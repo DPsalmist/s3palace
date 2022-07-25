@@ -1,37 +1,9 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Shoes, Suits, Category, Sub_Category
+from .models import Suits, Category, Sub_Category
 from cart.forms import CartAddProductForm
-# Create your views here.
+from django.db.models import Q 
 
-def home(request, category_slug=None):
-    category = None
-    categories = Category.objects.all()
-    subcategories = Sub_Category.objects.all()
-    suits = Suits.objects.all()
-    all_products = Product.objects.filter(available=True)
-    
-    Chinese = Suits.objects.filter(category__id__exact=2)
-    Italian = Suits.objects.filter(category__id__exact=1)
-    Turkey = Suits.objects.filter(category__id__exact=3)
-    
-    if category_slug:
-        category = get_object_or_404(Sub_Category, slug=category_slug)
-        suits = suits.filter(category=category)
-        
-    print ('These are the shoes',suits)
-    for c in subcategories:
-        print('Here are the shoes categories',c)
-        if c.name == 'Turkey':
-            print('Turkey Suits category is', c.name)
-        
-    context = {
-		'category': category,
-		'all_products':all_products,
-        'categories': categories,
-        'subcategories': subcategories,
-        'suits': suits
-        }
-    return render(request, 'shop/product/list.html')
+# Create your views here.
 
 def about(request, category_slug=None):
     category = None
@@ -70,11 +42,13 @@ def home_list(request, category_slug=None):
     subcategories = Sub_Category.objects.all()
     #products = Product.objects.filter(available=True)
     all_suits = Suits.objects.filter(available=True)
-    shoes = Shoes.objects.filter(available=True)
-    
+    #shoes = Shoes.objects.filter(available=True)
+
     # Filters
-    suits = Suits.objects.filter(available=True).order_by('created')[:8]
+    suits = Suits.objects.filter(available=True).order_by('created')[:12]
+    cheap_suits = 40000
     last_suit = Suits.objects.filter(available=True).last()
+    #cheap_suits = Suits.objects.filter(available=True).filter(price__range())
     penultimate_suit = Suits.objects.filter(available=True).order_by('-created')[0:1]
     pen_suit = penultimate_suit[0]
     
@@ -82,7 +56,7 @@ def home_list(request, category_slug=None):
     chinese_suits = all_suits.filter(category__id__exact=2).order_by('-created')[0:3]
     italian_suits = all_suits.filter(category__id__exact=1).order_by('-created')[0:3]
     turkey_suits = all_suits.filter(category__id__exact=3).order_by('-created')[0:3]
-    
+
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         subcategory = get_object_or_404(Sub_Category, slug=category_slug)
@@ -134,29 +108,16 @@ def category_list(request, category_slug=None):
         }
     return render(request,'shop/product/suit_category_list.html', context)
 
-def product_list(request, category_slug=None):
-    category = None
-    categories = Category.objects.all()
+def search(request):
+    # get search query
+    search_query = request.GET.get('q')
     subcategories = Sub_Category.objects.all()
-    products = Product.objects.filter(available=True)
-    suits = Suits.objects.filter(available=True)
     
-    if category_slug:
-        category = get_object_or_404(Category, slug=category_slug)
-        subcategory = get_object_or_404(Sub_Category, slug=category_slug)
-        products = products.filter(category=category)
-        suits = suits.filter(category=subcategory)
-        
-    print('this is category_slug, category and slug=', category_slug, category)
-    for c in categories:
-        print('c slug=', c.slug)
-        
-    context = {
-		'category': category,
-        'suits':suits,
-        'categories': categories,
-        'products': products,
-        'subcategories': subcategories
-        }
-    return render(request,'shop/product/list.html', context)
+    print('search object: ', search_query)
+    suits = Suits.objects.filter(Q(name__icontains=search_query) | Q(category__name__icontains=search_query)).filter(available=True).order_by('created')
+    print('returned search results = ', suits)
+    context = {'suits':suits, 'search_query':search_query, 'subcategories':subcategories}
+
+    return render(request, 'shop/product/search_results.html', context)
+    
 

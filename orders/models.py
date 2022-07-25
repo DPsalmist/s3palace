@@ -1,6 +1,7 @@
 from django.db import models
 from shop.models import Suits
 from decimal import Decimal
+
    
 class Order(models.Model):
 	first_name = models.CharField(max_length=50)
@@ -14,6 +15,7 @@ class Order(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	paid = models.BooleanField(default=False)
+	order_transaction_id = models.CharField(max_length=200, blank=True)
 	braintree_id = models.CharField(max_length=150, blank=True)
 
 	class Meta:

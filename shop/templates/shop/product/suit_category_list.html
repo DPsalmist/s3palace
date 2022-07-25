@@ -6,7 +6,7 @@
 <div class="breadcrumbs">
 	<div class="container">
 		<ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
-			<li><a href="{% url 'shop:home_list' %}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+			<li><a href="{% url 'shop:home' %}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
 			<li class="active">Categories</li><li class="active">{{category.name}} Suits</li>
 		</ol>
 	</div>
@@ -47,18 +47,18 @@
 						<h3 class="cate">Product Categories</h3>
 						<ul class="menu-drop">
 							<li class="item1"> {% if not category %} {% endif %}
-								<a href="{% url "shop:home_list" %}">All Categories</a>
+								<a href="{% url "shop:home" %}">All Categories</a>
 								<ul style="text-align:center;" class="cute">
 									{% for c in subcategories %}
 									<li class="subitem1 text-right" {% if category.slug == c.slug %} {% endif %}> 
 										{% if c.name == 'Chinese' %} 
-											<a href="{{ c.get_absolute_url }}"> <img src="{% static 'images/t8.jpg' %}" class="img-responsive" alt=""/>
+											<a href="{{ c.get_absolute_url }}"> <img style="height:100px;" src="{% static 'images/chinasuit1.jpeg' %}" class="img-responsive" alt=""/>
 												{{ c.name }} 
 										{% elif c.name == 'Italian' %}
-											<a href="{{ c.get_absolute_url }}"> <img src="{% static 'images/t9.jpg' %}" class="img-responsive" alt=""/>
+											<a href="{{ c.get_absolute_url }}"> <img style="height:100px;" src="{% static 'images/italysuit1.jpeg' %}" class="img-responsive" alt=""/>
 												{{ c.name }}
                                         {% elif c.name == 'Turkey' %}
-                                                <a href="{{ c.get_absolute_url }}"> <img src="{% static 'images/t9.jpg' %}" class="img-responsive" alt=""/>
+                                                <a href="{{ c.get_absolute_url }}"> <img style="height:100px;" src="{% static 'images/turkeysuit1.jpeg' %}" class="img-responsive" alt=""/>
                                                     {{ c.name }}
 										{% endif %}</a>
 									</li>

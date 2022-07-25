@@ -59,7 +59,7 @@ Free delivery of shoes and suits, Suits in Kubwa, Shoes in Kubwa, Ecommerce for 
 		<div class="container">
 				<div class="col-sm-4 logo animated wow fadeInLeft" data-wow-delay=".5s">
 					{% comment %} <img src="{% static 'images/logo2 copy.png' %}" style='height:50px; width:50px;',  alt='S3 Palace logo'/> {% endcomment %}
-					<h1><a class='' href="{% url 'shop:home_list' %}">S3 <span>Palace</span></a></h1>
+					<h1><a class='' href="{% url 'shop:home' %}">S3 <span>Palace</span></a></h1>
 						
 				</div>
 			<div class="col-sm-4 world animated wow fadeInRight" data-wow-delay=".5s">
@@ -110,9 +110,10 @@ Free delivery of shoes and suits, Suits in Kubwa, Shoes in Kubwa, Ecommerce for 
 				<div id="small-dialog" class="mfp-hide">
 				<div class="search-top">
 						<div class="login">
-							<form action="#" method="post">
+							<form action="{% url 'shop:search' %}" method="get">
+								<!-- {% csrf_token %} -->
 								<input type="submit" value="">
-								<input type="text" name="search" value="Type something to search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">		
+								<input type="text" name="q" value="Type something to search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">		
 							
 							</form>
 						</div>

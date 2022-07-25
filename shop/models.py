@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from taggit.managers import TaggableManager
+#from taggit.managers import TaggableManager
 
 # Create your models here.
 class Category(models.Model):
@@ -53,7 +53,7 @@ class Sub_Category(models.Model):
 	# def get_absolute_url(self):
 	# 	return reverse('shop:product_detail',args=[self.id, self.slug])
 
-
+'''
 class Shoes(models.Model):
     sizes = (
         (40,40),
@@ -91,7 +91,7 @@ class Shoes(models.Model):
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    tags = TaggableManager()
+    #tags = TaggableManager()
     
     class Meta:
         ordering = ('name',)
@@ -102,7 +102,7 @@ class Shoes(models.Model):
     
     def get_absolute_url(self):
         return reverse('shop:shoe_detail', args=[self.id, self.slug])
-    
+'''
     
 class Suits(models.Model):
     sizes = (
@@ -141,7 +141,7 @@ class Suits(models.Model):
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    tags = TaggableManager()
+    #tags = TaggableManager()
     
     def get_absolute_url(self):
         return reverse('shop:suit_detail', args=[self.id, self.slug])

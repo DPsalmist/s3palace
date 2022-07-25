@@ -1,7 +1,7 @@
-import braintree
+#import braintree
 from django.shortcuts import render
 from decimal import Decimal
-from paypal.standard.forms import PayPalPaymentsForm
+#from paypal.standard.forms import PayPalPaymentsForm
 from django.urls import reverse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
@@ -9,6 +9,7 @@ from orders.models import Order
 
 # Create your views here.
 
+'''
 # Paypal 
 def paypalpayment_process(request):
     order_id = request.session.get('order_id')
@@ -16,7 +17,7 @@ def paypalpayment_process(request):
     host = request.get_host()
 
     paypal_dict = {
-        'business': settings.PAYPAL_RECEIVER_EMAIL,
+        #'business': settings.PAYPAL_RECEIVER_EMAIL,
         'amount': '%.2f' % order.get_total_cost().quantize(Decimal('.01')),
         'item_name': 'Order {}'.format(order.id),
         'invoice': str(order.id),
@@ -31,7 +32,7 @@ def paypalpayment_process(request):
 
 
 # instantiate Braintree payment gateway
-gateway = braintree.BraintreeGateway(settings.BRAINTREE_CONF)
+#gateway = braintree.BraintreeGateway(settings.BRAINTREE_CONF)
 
 def payment_process(request):
     """The view that processes the payment using dropin ui"""
@@ -123,3 +124,5 @@ def payment_done(request):
 
 def payment_canceled(request):
     return render(request, 'payment/canceled.html')
+
+'''

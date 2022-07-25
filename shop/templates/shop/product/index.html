@@ -46,6 +46,7 @@
 			    <div class="clearfix"> </div>
 			</div>
 
+
             {% comment %} Second Row {% endcomment %}
 			<div class=" rsidebar span_1_of_left" {% if category.slug == c.slug %} {% endif %}>
                 {% for product in suits %}
@@ -58,7 +59,7 @@
 						<h3><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
 						<div class="price">
 								<h5 class="item_price">&#x20A6;{{ product.price }}</h5>
-								{% comment %} <a href="#" class="item_add">Add To Cart</a> {% endcomment %}
+								<!-- <a href="#" class="item_add">Add To Cart</a> -->
 								<div class="clearfix"> </div>
 						</div>
 					</div>
@@ -74,16 +75,16 @@
 <br><br>
 <h1 class="mt-5 animated wow fadeInRight" data-wow-delay=".5s" style="color:#e4e008e1; text-align:center">All Brands</h1><hr><br>
 <div class="row mt-5">
-<div class="con-tp">
-    <div class="container">
+    <div class="con-tp">
+        <div class="container">
 
-        <div class="col-md-4 mt-5 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
             {% for c in subcategories %}
+            <div class="col-md-4 mt-5 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
                 {% if c.name == 'Chinese' %} 
                     <a {% if category.slug == c.slug %} {% endif %} href="{{ c.get_absolute_url }}">
                         <div class="content-grid-effect slow-zoom vertical">
                             <div class="img-box">
-                                <img src="{% static 'images/6.jpg' %}" alt="image" class="img-responsive zoom-img">
+                                <img src="{% static 'images/chinasuit1.jpeg' %}" alt="Chinese brand " class="img-responsive zoom-img">
                             </div>
                             <div class="info-box">
                                 <div class="info-content simpleCart_shelfItem">
@@ -96,7 +97,7 @@
                     <a href="{{ c.get_absolute_url }}">
                         <div class="content-grid-effect slow-zoom vertical">
                             <div class="img-box">
-                                <img src="{% static 'images/14.jpg' %}" alt="image" class="img-responsive zoom-img">
+                                <img src="{% static 'images/italysuit1.jpeg' %}" alt="Italian brand" class="img-responsive zoom-img">
                             </div>
                             <div class="info-box">
                                 <div class="info-content simpleCart_shelfItem">
@@ -109,106 +110,23 @@
                     <a href="{{ c.get_absolute_url }}">
                         <div class="content-grid-effect slow-zoom vertical">
                             <div class="img-box">
-                                <img src="{% static 'images/10.jpg' %}" alt="image" class="img-responsive zoom-img">
+                                <img src="{% static 'images/turkeysuit1.jpeg' %}" alt="Turkey" class="img-responsive zoom-img">
                             </div>
                             <div class="info-box">
                                 <div class="info-content simpleCart_shelfItem">
-                                        <h4>{{ c.name }}</h4>
+                                    <h4>{{ c.name }}</h4>
                                 </div>
                             </div>
                         </div>
                     </a>
-                {% endif %}
+                {% endif %} 
+            </div>
             {% endfor %}
-        </div>
 
-        <div class="col-md-4 con-tp-lft animated wow fadeInDown animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-            <a href="products.html">			
-                <div class="content-grid-effect slow-zoom vertical">
-                    <div class="img-box"><img src="{% static 'images/10.jpg' %}" alt="image" class="img-responsive zoom-img"></div>
-                        <div class="info-box">
-                            <div class="info-content simpleCart_shelfItem">
-                                    <h4>45%offer</h4>	
-                            </div>
-                        </div>
-                </div>
-            </a>
+            <div class="clearfix"></div>
         </div>
-        
-        <div class="col-md-4 con-tp-lft animated wow fadeInRight" data-wow-delay=".5s">
-            <a href="products.html">
-                <div class="content-grid-effect slow-zoom vertical">
-                    <div class="img-box"><img src="{% static 'images/9.jpg' %}" alt="image" class="img-responsive zoom-img"></div>
-                        <div class="info-box">
-                            <div class="info-content simpleCart_shelfItem">
-                                    <h4>50%offer</h4>	
-                            </div>
-                        </div>
-                </div>
-            </a>
-        </div>
-        <div class="clearfix"></div>
-        {% comment %} Break {% endcomment %}
-        <div class="col-md-4 con-tp-lft animated wow fadeInLeft" data-wow-delay=".5s">
-            <a href="products.html">
-                <div class="content-grid-effect slow-zoom vertical">
-                    <div class="img-box"><img src="{% static 'images/12.jpg' %}" alt="image" class="img-responsive zoom-img"></div>
-                        <div class="info-box">
-                            <div class="info-content simpleCart_shelfItem">
-                                    <h4>25%offer</h4>	
-                            </div>
-                        </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-4 con-tp-lft animated wow fadeInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-            <a href="products.html">
-                <div class="content-grid-effect slow-zoom vertical">
-                    <div class="img-box"><img src="{% static 'images/13.jpg' %}" alt="image" class="img-responsive zoom-img"></div>
-                        <div class="info-box">
-                            <div class="info-content simpleCart_shelfItem">
-                                    <h4>50%offer</h4>	
-                            </div>
-                        </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-4 con-tp-lft animated wow fadeInRight" data-wow-delay=".5s">
-            <a href="products.html">
-                <div class="content-grid-effect slow-zoom vertical">
-                    <div class="img-box"><img src="{% static 'images/14.jpg' %}" alt="image" class="img-responsive zoom-img"></div>
-                        <div class="info-box">
-                            <div class="info-content simpleCart_shelfItem">
-                                    <h4>35%offer</h4>	
-                            </div>
-                        </div>
-                </div>
-            </a>
-        </div>
-        <div class="clearfix"></div>
     </div>
-</div>
 </div>
 <br><br>
 
 {% endblock content %}
-
-<h3 class="cate">Product Categories</h3>
-    <ul class="menu-drop">
-        <li class="item1"> {% if not category %} {% endif %}
-            <a href="{% url "shop:product_list" %}">All Categories</a>
-            <ul class="cute">
-                {% for c in categories %}
-                <li class="subitem1" {% if category.slug == c.slug %} {% endif %}> 
-                    {% if c.name == 'Suits' %} 
-                        <a href="{{ c.get_absolute_url }}"> <img src="{% static 'images/t8.jpg' %}" class="img-responsive" alt=""/>
-                            {{ c.name }} 
-                    {% elif c.name == 'Shoes' %}
-                        <a href="{{ c.get_absolute_url }}"> <img src="{% static 'images/t9.jpg' %}" class="img-responsive" alt=""/>
-                            {{ c.name }}
-                    {% endif %}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </li>
-    </ul>

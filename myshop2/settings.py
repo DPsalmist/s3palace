@@ -14,7 +14,7 @@ SECRET_KEY = 'm_1n^kl^8h+$p3hqro)i@90q4y300t!*j75fon#hp!t=#dw&2e'
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = os.getenv("DEBUG", "False") == "True"
 DEBUG = True
-ALLOWED_HOSTS = ['4e94-197-210-76-144.ngrok.io', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Default renderer
 FORM_RENDERER = 'django.forms.renderers.DjangoTemplates'
@@ -31,14 +31,14 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
-    'taggit',
+    #'taggit',
     'crispy_forms',
     'payment',
     'payment_app',
-    'paypal.standard.ipn',
+    #'paypal.standard.ipn',
     #'django_braintree',
 ]
-
+'''
 # Braintree settings
 if (len(sys.argv) >= 2 and sys.argv[1] == 'runserver'):
     BRAINTREE_PRODUCTION = False
@@ -58,7 +58,7 @@ BRAINTREE_MERCHANT_ID,
 BRAINTREE_PUBLIC_KEY,
 BRAINTREE_PRIVATE_KEY
 )
-
+'''
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
